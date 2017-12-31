@@ -177,5 +177,6 @@ Before you start to code, we recommend discussing your plans through a [GitHub i
 [apilityio-docs-url]: https://docs.apility.io
 [openresty-site-url]: https://openresty.org
 [lua-site-url]: https://www.lua.org
+[nginx-site-url]: https://nginx.org
 
 [github-new-issue]: https://github.com/apilityio/nginx-waf/issues/new/
