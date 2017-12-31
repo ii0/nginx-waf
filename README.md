@@ -68,7 +68,7 @@ $ docker build -t nginx-waf .
 
 The image nginx-waf will be created and uploaded to your local Docker registry.
 
-## Start Openresty
+## Start NGINX
 
 ### Apility.IO parameters
 
@@ -82,7 +82,7 @@ To service needs the following parameters:
 
 ### Run command
 
-To run the image execute this command:
+You can download the image from Docker Hub, or built it. To run the image execute this command:
 
 ```shell
 $ docker run -d -t -i \
@@ -91,8 +91,44 @@ $ docker run -d -t -i \
      -e APILITYIO_API_KEY=USER_API_KEY \
      -p 80:80 \
      --name nginx-waf \
-     nginx-waf
+     apilityio/nginx-waf
 ```
+
+### nginx config files
+
+The Docker tooling installs its own nginx.conf. If you want to directly override it, you can replace it in your own Dockerfile or via volume bind-mounting.
+
+That `nginx.conf` has the directive `include /etc/nginx/conf.d/*.conf;` so all nginx configurations in that directory will be included. The NGINX default configuration file it's copied into **/etc/nginx/conf.d/** and renamed as **default.conf**. This file contains the configuration needed to add the access filter when serving content. This is the file you should modify to adapt to your project needs.
+
+You can override that `default.conf` directly or volume bind-mount the `/etc/nginx/conf.d` directory to your own set of configurations:
+
+```shell
+$ docker run -d -t -i \
+     -e APILITYIO_URL=https://api.apility.net \
+     -e APILITYIO_LOCAL_CACHE_TTL=SECONDS \
+     -e APILITYIO_API_KEY=USER_API_KEY \
+     -v /my/custom/conf.d:/etc/nginx/conf.d \
+     -p 80:80 \
+     --name nginx-waf \
+     apilityio/nginx-waf
+```
+
+### Project files
+
+You will probably need more files to compose your project. You should add them via volume bind-mounting. For example the project `sample` as follows:
+
+```shell
+$ docker run -d -t -i \
+     -e APILITYIO_URL=https://api.apility.net \
+     -e APILITYIO_LOCAL_CACHE_TTL=SECONDS \
+     -e APILITYIO_API_KEY=USER_API_KEY \
+     -v /my/custom/conf.d:/etc/nginx/conf.d \
+     -v /my/custom/sampleproject.d:/sampleproject.d \
+     -p 80:80 \
+     --name nginx-waf \
+     apilityio/nginx-waf
+```
+
 
 ### Show logs
 
