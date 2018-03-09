@@ -8,7 +8,7 @@ Apility.io can be defined as a Look up as a Service for developers and product c
 
 Automatic extraction processes extracts all the information in realtime, keeping the most up to date data available, saving yourself the hassle of extract and update regularly all these lists and the data.
 
-Apility.io's documentation can be found at [apility.io/docs/index.html][apilityio-docs-url]. You can also read a post in our blog about how we built the [NGINX WAF with Openresty][apilityio-blog] step by step.
+You can read about how the API works in the [Apility.io API documentation][apilityio-docs-url]. You can also read a post in our blog about how we built the [NGINX WAF with Openresty][apilityio-blog] step by step.
 
 # How to use this image
 
@@ -210,7 +210,7 @@ You are invited to contribute new features, fixes, or updates, large or small; w
 Before you start to code, we recommend discussing your plans through a [GitHub issue][github-new-issue], especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
 
 [apilityio-site-url]: https://apility.io
-[apilityio-docs-url]: https://docs.apility.io
+[apilityio-docs-url]: https://apility.io/apidocs
 [openresty-site-url]: https://openresty.org
 [lua-site-url]: https://www.lua.org
 [nginx-site-url]: https://nginx.org
